@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <title>Building Smart Contracts for Dutch Auction (Part 1) &middot; Pavel Kiselyov</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Building Smart Contracts for Dutch Auction (Part 1)">
+<meta itemprop="description" content="In this series, we’ll talk about common challenges we encountered during the development of smart contracts for a non-standard token sale.
+Initial requirements for EVERY Token Sale:
+
+Dutch auction with duration of 30 days
+Exponential price decay, starting from $19.99 down to $0.01 per token
+Ability to accept Bitcoin-funded bids
+">
+<meta itemprop="datePublished" content="2018-03-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-03-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="880">
+
+
+
+<meta itemprop="keywords" content="" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Building Smart Contracts for Dutch Auction (Part 1)"/>
+<meta name="twitter:description" content="In this series, we’ll talk about common challenges we encountered during the development of smart contracts for a non-standard token sale.
+Initial requirements for EVERY Token Sale:
+
+Dutch auction with duration of 30 days
+Exponential price decay, starting from $19.99 down to $0.01 per token
+Ability to accept Bitcoin-funded bids
+"/>
+
+
+<meta property="og:title" content="Building Smart Contracts for Dutch Auction (Part 1)" />
+<meta property="og:description" content="In this series, we’ll talk about common challenges we encountered during the development of smart contracts for a non-standard token sale.
+Initial requirements for EVERY Token Sale:
+
+Dutch auction with duration of 30 days
+Exponential price decay, starting from $19.99 down to $0.01 per token
+Ability to accept Bitcoin-funded bids
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/01-building-smart-contracts-for-dutch-auction-part-1/" />
+<meta property="article:published_time" content="2018-03-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-03-28T00:00:00+00:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="160x160"
+        href="/apple-touch-icon.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="/profile-pic.jpg" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Pavel Kiselyov</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://example.com">Home</a>
+        </li>
+        <li>
+          <a href="/posts/">Posts</a>
+        </li><li>
+          <a href="https://pavel.engineering">Resume</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/pavel-main" rel="me" title="Linkedin" target="_blank">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/pavel-main" rel="me" title="GitHub" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Building Smart Contracts for Dutch Auction (Part 1)</h1>
+
+  <div class="post-date">
+    <time datetime="2018-03-28T00:00:00Z">Mar 28, 2018</time> &middot; 5 min read
+  </div>
+
+  <p>In this series, we’ll talk about common challenges we encountered during the development of smart contracts for a non-standard token sale.</p>
+<p>Initial requirements for EVERY Token Sale:</p>
+<ul>
+<li>Dutch auction with duration of 30 days</li>
+<li>Exponential price decay, starting from $19.99 down to $0.01 per token</li>
+<li>Ability to accept Bitcoin-funded bids</li>
+</ul>
+<h2 id="anatomy-of-an-ico">Anatomy of an ICO</h2>
+<p>First of all, what exactly is a so-called “ICO” from a technical perspective?</p>
+<p>Classic crowdsale smart contract code consists of two Solidity classes: the ERC20 Token and the token sale contract.</p>
+<p>The most important part of an ERC20 contract is the balances variable, which represents the amount of tokens owned by specific Ethereum address:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Basic token
+</span><span style="color:#75715e"> * Basic version of StandardToken, with no allowances
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">contract</span> BasicToken <span style="color:#66d9ef">is</span> ERC20Basic, SafeMath {
+
+  <span style="color:#66d9ef">mapping</span>(<span style="color:#66d9ef">address</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">uint</span>) balances;
+
+  <span style="color:#66d9ef">function</span> balanceOf(<span style="color:#66d9ef">address</span> _owner) <span style="color:#66d9ef">constant</span> <span style="color:#66d9ef">returns</span> (<span style="color:#66d9ef">uint</span> balance) {
+    <span style="color:#66d9ef">return</span> balances[_owner];
+  }
+}
+</code></pre></div><p>All other functions operate on this mapping, allowing a trusted account to transfer, check their balance, or approve allowances. The constructor function <code>DutchAuction()</code>, called during contract deployment to the network, usually defines the total supply of tokens and immediately transfers them to the deployer address.</p>
+<p>Typical Crowdsale contracts have a single payable <code>buyTokens()</code> function (the actual name will vary across contracts), which accepts Ethereum currency from the sender, performs some checks, and then calls connected token contract functions to reward the sender, transferring tokens from the contract deployer.</p>
+<p>More complicated examples have soft or/and hard cap, token price discounts depending on the time, ability to refund, etc.</p>
+<h2 id="toolbox">Toolbox</h2>
+<p>Before starting to code, it’s important to pickup a proper set of tools to avoid shooting yourself in the foot.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">If programming languages were tools. (via <a href="https://twitter.com/9GAG?ref_src=twsrc%5Etfw">@9gag</a>) <a href="https://twitter.com/hashtag/devhumor?src=hash&amp;ref_src=twsrc%5Etfw">#devhumor</a> <a href="https://t.co/tmdKa2SGo0">pic.twitter.com/tmdKa2SGo0</a></p>&mdash; Microsoft Developer UK (@msdevUK) <a href="https://twitter.com/msdevUK/status/714794487042727936?ref_src=twsrc%5Etfw">March 29, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p><a href="https://www.trufflesuite.com">Truffle Suite</a> is an industry-leading development framework for smart contracts, which provides automated compilation, scripting, unit testing (both in Solidity and JavaScript), and deployment to multiple Ethereum networks.</p>
+<p>Another very helpful tool from the Truffle team is <a href="https://github.com/trufflesuite/ganache-cli">ganache-cli</a> (formerly TestRPC), which allows you to run a local simulation of Ethereum blockchain without it being necessary to download ~3 million mainnet blocks worth hundreds of gigabytes.</p>
+<p><a href="https://github.com/OpenZeppelin/openzeppelin-contracts">OpenZeppelin</a> is a Solidity library containing a set of token, crowdsale contracts, and other interfaces, which are continuously tested and security audited by the development community. It also provides a lot of helpful test functions for development with Ganache. Notable examples include <code>expectThrow()</code>, which allows to tests to catch EVM exceptions, and <code>increaseTime()</code>, which enables local environment time movement simulation.</p>
+<p>Example of <code>increaseTime()</code> usage in JavaScript tests:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Fast-forward to 1st day to decrease price
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">increaseTime</span>(<span style="color:#a6e22e">helpers</span>.<span style="color:#a6e22e">byDays</span>(<span style="color:#ae81ff">1</span>));
+
+<span style="color:#75715e">// Place 1st bid
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">assertAcceptedBid</span>(<span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">bids</span>.<span style="color:#a6e22e">second</span>);
+<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">assertReceivedWei</span>(<span style="color:#a6e22e">received</span>.<span style="color:#a6e22e">after2</span>);
+
+<span style="color:#75715e">// Place 2nd bid
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">assertAcceptedBid</span>(<span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">bids</span>.<span style="color:#a6e22e">third</span>);
+<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">assertReceivedWei</span>(<span style="color:#a6e22e">received</span>.<span style="color:#a6e22e">after3</span>);
+
+<span style="color:#75715e">// Fast-forward 7 days to claim tokens
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">increaseTime</span>(<span style="color:#a6e22e">helpers</span>.<span style="color:#a6e22e">byDays</span>(<span style="color:#ae81ff">8</span>));
+</code></pre></div><p><a href="https://github.com/duaraghav8/Ethlint">Ethlint</a> is an automated tool to check your code conformity with the official <a href="http://solidity.readthedocs.io/en/latest/style-guide.html">Solidity Style Guide</a>. It’s pretty configurable, so you can turn off debatable cosmetic rules like the two blank line gap between contract declaration and its first function.</p>
+<p><a href="https://github.com/sc-forks/solidity-coverage">solidity-coverage</a> measures which lines and branches of your code are covered by related unit tests, generating beautiful HTML reports using <a href="https://github.com/gotwarlost/istanbul">istanbul</a>.</p>
+<p>Finally, <a href="https://circleci.com">CircleCI</a> helped us to connect all of this tools and automatically run them one-by-one on every new feature branch and master branch updates, ensuring we don’t have any compilation errors, test failures, or obvious security flaws.</p>
+<h2 id="preparation">Preparation</h2>
+<p>Even experienced software engineers make mistakes. A typo, an environment-specific (mis)configuration, or an unobvious EVM behaviour can lead to problems. It’s very important to be able to detect parts of the code responsible for them.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Debugging is like being the detective in a crime movie where you are also the murderer.</p>&mdash; Filipe Fortes (@fortes) <a href="https://twitter.com/fortes/status/399339918213652480?ref_src=twsrc%5Etfw">November 10, 2013</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>In Solidity, all of the logging is achieved through the concept of <a href="https://solidity.readthedocs.io/en/v0.4.21/contracts.html#events">Events</a>. Whenever you’re having a failure in tests, Truffle console shows exact events that were emitted during test transactions, helping you to figure out which parts of the code weren’t reached:</p>
+<p><img src="/solidity-tests.png" alt="Failed test report in Truffle console"></p>
+<p>Since every operation in EVM has a <a href="https://docs.google.com/spreadsheets/d/1n6mRqkBz3iWcOlRem_mO09GtSKEKrAsfO7Frgx18pNU/edit#gid=0">non-zero gas price</a>, it’s inefficient to put event emitting wherever you want, like during classic programming (e.g. a webserver can have request logging with DEBUG severity). Take a pen and paper, sit back and think about the crucial parts of your contract — what exactly do you want to track and be sure of?</p>
+<p>For our case, the Dutch Auction, they’re split into three main categories:</p>
+<ul>
+<li>Auction stage transition events (deployed / started / ended)</li>
+<li>Bid placement events (accepted / rejected / refunded)</li>
+<li>Token claiming events (after the price is finalized)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">event</span> AuctionDeployed(<span style="color:#66d9ef">uint256</span> <span style="color:#66d9ef">indexed</span> priceStart);
+
+<span style="color:#66d9ef">event</span> AuctionStarted(<span style="color:#66d9ef">uint256</span> _startTime);
+
+<span style="color:#66d9ef">event</span> AuctionEnded(
+  <span style="color:#66d9ef">uint256</span> priceFinal, 
+  <span style="color:#66d9ef">uint256</span> _endTime, 
+  Endings ending
+);
+
+<span style="color:#66d9ef">event</span> BidAccepted(
+  <span style="color:#66d9ef">address</span> <span style="color:#66d9ef">indexed</span> _address, 
+  <span style="color:#66d9ef">uint256</span> price, 
+  <span style="color:#66d9ef">uint256</span> transfer, 
+  <span style="color:#66d9ef">bool</span> isBitcoin
+);
+
+<span style="color:#66d9ef">event</span> BidPartiallyRefunded(
+  <span style="color:#66d9ef">address</span> <span style="color:#66d9ef">indexed</span> _address, 
+  <span style="color:#66d9ef">uint256</span> transfer
+); 
+
+<span style="color:#66d9ef">event</span> FundsTransfered(
+  <span style="color:#66d9ef">address</span> <span style="color:#66d9ef">indexed</span> _bidder, 
+  <span style="color:#66d9ef">address</span> <span style="color:#66d9ef">indexed</span> wallet, 
+  <span style="color:#66d9ef">uint256</span> amount
+);
+
+<span style="color:#66d9ef">event</span> TokensClaimed(
+  <span style="color:#66d9ef">address</span> <span style="color:#66d9ef">indexed</span> _address, 
+  <span style="color:#66d9ef">uint256</span> amount
+); 
+
+<span style="color:#66d9ef">event</span> TokensDistributed(); 
+</code></pre></div><p>A built-in step-by-step <a href="https://www.trufflesuite.com/docs/truffle/getting-started/debugging-your-contracts">debugger included in Truffle</a> is also worth mentioning and has saved a lot of time, despite being an alpha feature during the development.</p>
+<h2 id="wrap-up">Wrap-up</h2>
+<p>So far we’ve defined some foundational terminology together, in next parts we will talk about the actual requirements fulfillment, while overcoming or implementing things like:</p>
+<ul>
+<li>Solidity’s arithmetic limitations</li>
+<li>Measuring gas price through benchmarks</li>
+<li>Connecting BTC and ETH blockchains</li>
+<li>DApp development issues</li>
+</ul>
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy; Pavel Kiselyov 2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="/js/blog.js"></script>
+
+  
+</body>
+</html>

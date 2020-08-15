@@ -1,7 +1,7 @@
 ---
 title: "Building Smart Contracts for Dutch Auction (Part 1)"
 date: 2018-03-28
-draft: true
+draft: false
 ---
 
 In this series, we’ll talk about common challenges we encountered during the development of smart contracts for a non-standard token sale.

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <title>Building Smart Contracts for Dutch Auction (Part 2) &middot; Pavel Kiselyov</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Building Smart Contracts for Dutch Auction (Part 2)">
+<meta itemprop="description" content="In the previous article, we figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.
+Now it’s time to write an actual Dutch Auction in Solidity!">
+<meta itemprop="datePublished" content="2018-04-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-04-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="729">
+
+
+
+<meta itemprop="keywords" content="" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Building Smart Contracts for Dutch Auction (Part 2)"/>
+<meta name="twitter:description" content="In the previous article, we figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.
+Now it’s time to write an actual Dutch Auction in Solidity!"/>
+
+
+<meta property="og:title" content="Building Smart Contracts for Dutch Auction (Part 2)" />
+<meta property="og:description" content="In the previous article, we figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.
+Now it’s time to write an actual Dutch Auction in Solidity!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/02-building-smart-contracts-for-dutch-auction-part-2/" />
+<meta property="article:published_time" content="2018-04-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-04-16T00:00:00+00:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="160x160"
+        href="/apple-touch-icon.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="/profile-pic.jpg" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Pavel Kiselyov</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://example.com">Home</a>
+        </li>
+        <li>
+          <a href="/posts/">Posts</a>
+        </li><li>
+          <a href="https://pavel.engineering">Resume</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/pavel-main" rel="me" title="Linkedin" target="_blank">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/pavel-main" rel="me" title="GitHub" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Building Smart Contracts for Dutch Auction (Part 2)</h1>
+
+  <div class="post-date">
+    <time datetime="2018-04-16T00:00:00Z">Apr 16, 2018</time> &middot; 4 min read
+  </div>
+
+  <p>In the previous article, we figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.</p>
+<p>Now it’s time to write an actual Dutch Auction in Solidity!</p>
+<p>From the Wikipedia&rsquo;s definition of <a href="https://en.wikipedia.org/wiki/Dutch_auction">Dutch Auction</a>:</p>
+<blockquote>
+<p>Most commonly, it means an auction in which the auctioneer begins with a high asking price, and lowers it until some participant accepts the price, or it reaches a predetermined reserve price.</p>
+</blockquote>
+<p>A Dutch Auction has several advantages over a classic crowdsale:</p>
+<ul>
+<li>Allows participation that does not offer price advantages to wealthier participants.</li>
+<li>Allows participation from those who wish to buy large amounts, to participate fairly.</li>
+<li>Ensures extended purchasing event period to prevent network delays, long queues, and price advantages to those who can afford to pay more gas.</li>
+<li>Prioritizes the number of participants over the number of dollars raised</li>
+</ul>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Bundesarchiv_B_145_Bild-F004491-0002%2C_Kirschenversteigerung_an_der_Mosel.jpg" alt="A 1957 Dutch Auction in Germany to sell fruit"></p>
+<p>Just like a real-life auction, we have to accept the bids to-be-claimed-later and save them in contract storage. In every bid we have to fix current token price, stake amount, and have a couple of helper notes (e.g. whether bid tokens were already claimed or the bid was placed using Bitcoin donation):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">contract</span> DutchAuction <span style="color:#66d9ef">is</span> PriceDecay150 { 
+    <span style="color:#75715e">// Auction Bid 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">struct</span> Bid {
+        <span style="color:#66d9ef">uint256</span> price; 
+        <span style="color:#66d9ef">uint256</span> transfer; 
+        <span style="color:#66d9ef">bool</span> placed; 
+        <span style="color:#66d9ef">bool</span> claimed; 
+        <span style="color:#66d9ef">bool</span> isBitcoin;
+    }
+
+<span style="color:#75715e">// Address to bid mapping 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">mapping</span> (<span style="color:#66d9ef">address</span> <span style="color:#f92672">=&gt;</span> Bid) <span style="color:#66d9ef">public</span> bids; 
+</code></pre></div><p>As you can notice, a Dutch Auction in Ethereum is as simple as a <a href="https://eips.ethereum.org/EIPS/eip-20">ERC20 Token</a> — main variable called bids defines the details of the bid, placed by a specific Ethereum address.</p>
+<p>This, however, introduces us to the first limitation — <strong>only a single bid can be placed by a unique address</strong>. Of course, we can modify our mapping to store an array of bids per address and then add additional loops in placing / claiming functions. But this complication will increase the overall contract interaction gas costs (because of <a href="https://ethereum.stackexchange.com/a/896/31032">expensive storage</a>) and gas costs for each new address bid. To avoid the unnecessary increase in cost per user, we delegate this problem to our fellow bidders — generating a new address in almost every Ethereum wallet is as easy as a couple of mouse clicks!</p>
+<p>Every real-life Dutch Auction is split into two main stages — the bidding process and the actual goods selling after the final price is set. Obviously, you can’t sell anything before the bidding has started and you can’t accept the bids after the price is finalized. These kinds of security limitations can be achieved through Solidity’s <a href="http://solidity.readthedocs.io/en/v0.4.21/types.html#enums">enumerations</a> and <a href="http://solidity.readthedocs.io/en/v0.4.21/common-patterns.html#restricting-access">function modifiers</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#75715e">// Auction Stages
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">enum</span> Stages {
+    AuctionDeployed, 
+    AuctionStarted, 
+    AuctionEnded, 
+    TokensDistributed
+} 
+
+<span style="color:#75715e">// Current stage 
+</span><span style="color:#75715e"></span>Stages <span style="color:#66d9ef">public</span> current_stage;
+
+<span style="color:#75715e">// Stage modifier 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">modifier</span> atStage(Stages _stage) { 
+    require(current_stage <span style="color:#f92672">==</span> _stage); 
+} 
+</code></pre></div><p>After the auction contract is deployed to the network, it will have initial <code>AuctionDeployed</code> state. Then, <code>startAuction()</code> method will be called by the contract owner, allowing investors to place bids using <a href="http://solidity.readthedocs.io/en/v0.4.21/contracts.html#fallback-function">default fallback function</a> <code>()</code>. Under some conditions, stage will be changed to AuctionEnded, allowing participants to start claiming their tokens by calling <code>claimTokens()</code> function. Every function listed above is limited by <code>atStage</code> modifier, which will throw EVM error and return any transferred funds back to the sender if the stage is incorrect:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#75715e">// Setup auction 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> startAuction(
+    <span style="color:#66d9ef">address</span> _tokenAddress, 
+    <span style="color:#66d9ef">uint256</span> offering, 
+    <span style="color:#66d9ef">uint256</span> bonus
+) <span style="color:#66d9ef">external</span> isOwner atStage (Stages.AuctionDeployed) {
+    <span style="color:#75715e">// Setup logic
+</span><span style="color:#75715e"></span>} 
+ 
+<span style="color:#75715e">// Default fallback function 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> () <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">payable</span> atStage(Stages.AuctionStarted) { 
+    placeBidGeneric(msg.sender, msg.value, <span style="color:#66d9ef">false</span>); 
+} 
+
+<span style="color:#75715e">// Claim tokens 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> claimTokens() <span style="color:#66d9ef">external</span> atStage(Stages.AuctionEnded) {
+    <span style="color:#75715e">// Claim logic
+</span><span style="color:#75715e"></span>} 
+</code></pre></div><p>Why not start an auction immediately after the contract is deployed? In <code>startAuction()</code>, we’re creating a <code>ShopToken</code> instance using it’s address in order to automatically transfer tokens to their owners. But this can be done directly in the constructor function, which implies that <code>ShopToken</code> contract is deployed before <code>DutchAuction</code>. We&rsquo;ve decided to do it vice versa, ensuring the auction contract receives specified number of tokens for sale, using scriptable <a href="https://www.trufflesuite.com/docs/truffle/getting-started/running-migrations">Truffle migrations</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Deploy contracts and start auction 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">deployer</span>.<span style="color:#a6e22e">deploy</span>(
+    <span style="color:#a6e22e">DutchAuction</span>, 
+    <span style="color:#a6e22e">priceStart</span>, 
+    <span style="color:#a6e22e">pricePrecision</span>, 
+    <span style="color:#a6e22e">minimumBid</span>, 
+    <span style="color:#a6e22e">claimPeriod</span>, 
+    <span style="color:#a6e22e">walletAddress</span>
+).<span style="color:#a6e22e">then</span>(
+    <span style="color:#a6e22e">deployer</span>.<span style="color:#a6e22e">deploy</span>(
+        <span style="color:#a6e22e">ShopToken</span>, 
+        <span style="color:#a6e22e">DutchAuction</span>.<span style="color:#a6e22e">address</span>, 
+        <span style="color:#a6e22e">initialSupply</span>, 
+        <span style="color:#a6e22e">auctionSupply</span>
+    ).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>() { 
+        <span style="color:#a6e22e">DutchAuction</span>.<span style="color:#a6e22e">deployed</span>().<span style="color:#a6e22e">then</span>(
+            <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">instance</span>) { 
+                <span style="color:#a6e22e">instance</span>.<span style="color:#a6e22e">startAuction</span>(
+                    <span style="color:#a6e22e">ShopToken</span>.<span style="color:#a6e22e">address</span>, 
+                    <span style="color:#a6e22e">offering</span>.<span style="color:#a6e22e">toString</span>(), 
+                    <span style="color:#a6e22e">bonus</span>.<span style="color:#a6e22e">toString</span>()
+                )
+            }
+        )
+    )
+);
+</code></pre></div><p>So far, we’ve learned the core concepts of a Dutch Auction and its representation in the Solidity language. In the next part, we will deal with the exponential price decay, Bitcoin-funded bids, and DApp development problems.</p>
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy; Pavel Kiselyov 2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="/js/blog.js"></script>
+
+  
+</body>
+</html>

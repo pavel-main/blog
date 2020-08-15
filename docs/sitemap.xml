@@ -18,6 +18,16 @@
   </url>
   
   <url>
+    <loc>https://example.com/posts/02-building-smart-contracts-for-dutch-auction-part-2/</loc>
+    <lastmod>2018-04-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/01-building-smart-contracts-for-dutch-auction-part-1/</loc>
+    <lastmod>2018-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/categories/</loc>
   </url>
   
