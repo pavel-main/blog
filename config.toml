@@ -4,6 +4,7 @@ baseURL = "https://example.com"
 title = "Pavel Kiselyov"
 languageCode = "en"
 enableInlineShortcodes = true
+publishDir = "build"
 
 summarylength = 100
 enableEmoji = true

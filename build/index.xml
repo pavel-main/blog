@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pavel Kiselyov</title>
+    <link>https://example.com/</link>
+    <description>Recent content on Pavel Kiselyov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BB-132: Pavel Kiselyov about ICO industry and Blockchain</title>
+      <link>https://example.com/posts/03-basic-block-radio/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/03-basic-block-radio/</guid>
+      <description>&lt;p&gt;Participated in Russian podcast called &lt;a href=&#34;https://basicblockradio.com/e132/&#34;&gt;Basic Block&lt;/a&gt; about software engineering in blockchain and cryptocurrency space.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/CNDCSwNzMmw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
