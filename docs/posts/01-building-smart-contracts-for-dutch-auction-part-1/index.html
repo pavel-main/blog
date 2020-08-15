@@ -199,7 +199,7 @@ Ability to accept Bitcoin-funded bids
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>In Solidity, all of the logging is achieved through the concept of <a href="https://solidity.readthedocs.io/en/v0.4.21/contracts.html#events">Events</a>. Whenever you’re having a failure in tests, Truffle console shows exact events that were emitted during test transactions, helping you to figure out which parts of the code weren’t reached:</p>
-<p><img src="solidity-tests.png" alt="Failed test report in Truffle console"></p>
+<p><img src="/solidity-tests.png" alt="Failed test report in Truffle console"></p>
 <p>Since every operation in EVM has a <a href="https://docs.google.com/spreadsheets/d/1n6mRqkBz3iWcOlRem_mO09GtSKEKrAsfO7Frgx18pNU/edit#gid=0">non-zero gas price</a>, it’s inefficient to put event emitting wherever you want, like during classic programming (e.g. a webserver can have request logging with DEBUG severity). Take a pen and paper, sit back and think about the crucial parts of your contract — what exactly do you want to track and be sure of?</p>
 <p>For our case, the Dutch Auction, they’re split into three main categories:</p>
 <ul>
