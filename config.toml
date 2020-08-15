@@ -1,6 +1,6 @@
 theme = "soho"
 
-baseURL = "https://example.com"
+baseURL = "https://pavel-main.github.io/blog"
 title = "Pavel Kiselyov"
 languageCode = "en"
 enableInlineShortcodes = true
