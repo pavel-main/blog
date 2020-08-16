@@ -30,7 +30,7 @@
       <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://pavel-main.github.io/blog/posts/02-building-smart-contracts-for-dutch-auction-part-2/</guid>
-      <description>&lt;p&gt;In the previous article, we figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.&lt;/p&gt;
+      <description>&lt;p&gt;In the previous article, we&amp;rsquo;ve figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.&lt;/p&gt;
 &lt;p&gt;Now it’s time to write an actual Dutch Auction in Solidity!&lt;/p&gt;</description>
     </item>
     
