@@ -15,7 +15,7 @@ profilePicture = "profile-pic.jpg"
 copyright = "Pavel Kiselyov"
 
 ## Set custom theme color.
-# themeColor = "#fc2803"
+themeColor = "#0b5394"
 
 ## Set custom CSS and/or JS to override site defaults.
 customCss = ["css/blog.css"]
