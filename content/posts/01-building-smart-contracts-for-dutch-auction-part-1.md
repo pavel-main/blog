@@ -87,7 +87,7 @@ Even experienced software engineers make mistakes. A typo, an environment-specif
 
 In Solidity, all of the logging is achieved through the concept of [Events](https://solidity.readthedocs.io/en/v0.4.21/contracts.html#events). Whenever you’re having a failure in tests, Truffle console shows exact events that were emitted during test transactions, helping you to figure out which parts of the code weren’t reached:
 
-![Failed test report in Truffle console](/solidity-tests.png)
+{{< img "Failed test report in Truffle console" "solidity-tests.png" >}}
 
 Since every operation in EVM has a [non-zero gas price](https://docs.google.com/spreadsheets/d/1n6mRqkBz3iWcOlRem_mO09GtSKEKrAsfO7Frgx18pNU/edit#gid=0), it’s inefficient to put event emitting wherever you want, like during classic programming (e.g. a webserver can have request logging with DEBUG severity). Take a pen and paper, sit back and think about the crucial parts of your contract — what exactly do you want to track and be sure of?
 
