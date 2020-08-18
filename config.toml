@@ -1,6 +1,6 @@
-baseURL = "https://pavel-main.github.io/blog/"
+baseURL = "https://pavel.engineering"
 googleAnalytics = "UA-171038047-2"
-disqusShortname = "https-pavel-main-github-io-blog"
+disqusShortname = "pavel-engineering"
 
 theme = "soho"
 title = "Pavel Kiselyov"
@@ -43,10 +43,10 @@ customJs = ["js/blog.js"]
   url = "/posts/"
 
   [[menu.main]]
-  name = "Resume"
-  identifier = "resume"
+  name = "CV"
+  identifier = "CV"
   weight = 300
-  url = "https://pavel.engineering"
+  url = "/cv/"
 
 [taxonomies]
   category = "categories"

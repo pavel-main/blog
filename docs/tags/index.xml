@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pavel Kiselyov</title>
-    <link>https://pavel-main.github.io/blog/tags/</link>
+    <link>https://pavel.engineering/tags/</link>
     <description>Recent content in Tags on Pavel Kiselyov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	<atom:link href="https://pavel-main.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pavel.engineering/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

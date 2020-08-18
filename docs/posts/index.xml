@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Pavel Kiselyov</title>
-    <link>https://pavel-main.github.io/blog/posts/</link>
+    <link>https://pavel.engineering/posts/</link>
     <description>Recent content in Posts on Pavel Kiselyov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://pavel-main.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pavel.engineering/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>BB-132: Pavel Kiselyov about ICO industry and Blockchain</title>
-      <link>https://pavel-main.github.io/blog/posts/03-basic-block-radio/</link>
+      <link>https://pavel.engineering/posts/03-basic-block-radio/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://pavel-main.github.io/blog/posts/03-basic-block-radio/</guid>
+      <guid>https://pavel.engineering/posts/03-basic-block-radio/</guid>
       <description>&lt;p&gt;Participated in Russian podcast called &lt;a href=&#34;https://basicblockradio.com/e132/&#34;&gt;Basic Block&lt;/a&gt; about software engineering in blockchain and cryptocurrency space.&lt;/p&gt;
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
@@ -26,20 +26,20 @@
     
     <item>
       <title>Building Smart Contracts for Dutch Auction (Part 2)</title>
-      <link>https://pavel-main.github.io/blog/posts/02-building-smart-contracts-for-dutch-auction-part-2/</link>
+      <link>https://pavel.engineering/posts/02-building-smart-contracts-for-dutch-auction-part-2/</link>
       <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pavel-main.github.io/blog/posts/02-building-smart-contracts-for-dutch-auction-part-2/</guid>
+      <guid>https://pavel.engineering/posts/02-building-smart-contracts-for-dutch-auction-part-2/</guid>
       <description>&lt;p&gt;In the previous article, we&amp;rsquo;ve figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.&lt;/p&gt;
 &lt;p&gt;Now it’s time to write an actual Dutch Auction in Solidity!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Building Smart Contracts for Dutch Auction (Part 1)</title>
-      <link>https://pavel-main.github.io/blog/posts/01-building-smart-contracts-for-dutch-auction-part-1/</link>
+      <link>https://pavel.engineering/posts/01-building-smart-contracts-for-dutch-auction-part-1/</link>
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pavel-main.github.io/blog/posts/01-building-smart-contracts-for-dutch-auction-part-1/</guid>
+      <guid>https://pavel.engineering/posts/01-building-smart-contracts-for-dutch-auction-part-1/</guid>
       <description>&lt;p&gt;In this series, we’ll talk about common challenges we encountered during the development of smart contracts for a non-standard token sale.&lt;/p&gt;
 &lt;p&gt;Initial requirements for EVERY Token Sale:&lt;/p&gt;
 &lt;ul&gt;
