@@ -3,7 +3,9 @@
     <div class="sidebar-about">
       {{ with .Site.Params.gravatar }}
       <div class="author-image">
-        <img src="https://www.gravatar.com/avatar/{{md5 .}}?s=200&d=mp" class="img-circle img-headshot center" alt="Gravatar">
+        <a href="{{ .Site.BaseURL }}">
+          <img src="https://www.gravatar.com/avatar/{{md5 .}}?s=200&d=mp" class="img-circle img-headshot center" alt="Gravatar">
+        </a>  
       </div>
       {{ else }}
         {{ with .Site.Params.profilePicture }}
