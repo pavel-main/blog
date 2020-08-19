@@ -43,7 +43,7 @@ customJs = ["js/blog.js"]
   url = "/posts/"
 
   [[menu.main]]
-  name = "Resume"
+  name = "Résumé"
   identifier = "resume"
   weight = 300
   url = "https://pavel.engineering"
