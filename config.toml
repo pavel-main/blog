@@ -3,7 +3,7 @@ googleAnalytics = "UA-171038047-2"
 disqusShortname = "https-pavel-main-github-io-blog"
 
 theme = "soho"
-title = "Pavel Kiselyov"
+title = "Pavel Kiselyov - Engineering Blog"
 languageCode = "en"
 enableInlineShortcodes = true
 publishDir = "docs"
