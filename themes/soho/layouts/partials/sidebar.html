@@ -3,14 +3,14 @@
     <div class="sidebar-about">
       {{ with .Site.Params.gravatar }}
       <div class="author-image">
-        <a href="{{ .Site.BaseURL }}">
-          <img src="https://www.gravatar.com/avatar/{{md5 .}}?s=200&d=mp" class="img-circle img-headshot center" alt="Gravatar">
-        </a>  
+        <img src="https://www.gravatar.com/avatar/{{md5 .}}?s=200&d=mp" class="img-circle img-headshot center" alt="Gravatar">
       </div>
       {{ else }}
-        {{ with .Site.Params.profilePicture }}
+        {{ with .Site }}
         <div class="author-image">
-          <img src="{{ . | relURL }}" class="img-circle img-headshot center" alt="Profile Picture">
+          <a href="{{ .BaseURL }}">
+            <img src="{{ .Params.profilePicture | relURL }}" class="img-circle img-headshot center" alt="Profile Picture">
+          </a>
         </div>
         {{ end }}
       {{ end }}
