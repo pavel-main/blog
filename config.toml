@@ -48,6 +48,12 @@ customJs = ["js/blog.js"]
   weight = 300
   url = "https://pavel.engineering"
 
+  [[menu.main]]
+  name = "Projects"
+  weight = 100
+  identifier = "projects"
+  url = "/projects/"  
+
 [taxonomies]
   category = "categories"
   series = "series"

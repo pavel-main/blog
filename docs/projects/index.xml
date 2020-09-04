@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Pavel Kiselyov - Engineering Blog</title>
+    <link>https://pavel-main.github.io/blog/projects/</link>
+    <description>Recent content in Projects on Pavel Kiselyov - Engineering Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://pavel-main.github.io/blog/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>🔌 Blockchain Exchange API client implementation in Scala</title>
+      <link>https://pavel-main.github.io/blog/projects/01-exchange4s/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/blog/projects/01-exchange4s/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
