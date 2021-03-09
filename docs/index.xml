@@ -6,11 +6,7 @@
     <description>Recent content on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://pavel-main.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BB-132: Pavel Kiselyov about ICO industry and Blockchain</title>
       <link>https://pavel-main.github.io/blog/posts/03-basic-block-radio/</link>

@@ -4,7 +4,7 @@
   <base href="https://pavel-main.github.io/blog/">     
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="generator" content="Hugo 0.80.0" />
 
   <title>Building Smart Contracts for Dutch Auction (Part 1) &middot; Pavel Kiselyov - Engineering Blog</title>
 
@@ -22,7 +22,7 @@ Ability to accept Bitcoin-funded bids
 ">
 <meta itemprop="datePublished" content="2018-03-28T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-03-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="880">
+<meta itemprop="wordCount" content="886">
 
 
 
@@ -212,18 +212,18 @@ Ability to accept Bitcoin-funded bids
 <p><a href="https://github.com/OpenZeppelin/openzeppelin-contracts">OpenZeppelin</a> is a Solidity library containing a set of token, crowdsale contracts, and other interfaces, which are continuously tested and security audited by the development community. It also provides a lot of helpful test functions for development with Ganache. Notable examples include <code>expectThrow()</code>, which allows to tests to catch EVM exceptions, and <code>increaseTime()</code>, which enables local environment time movement simulation.</p>
 <p>Example of <code>increaseTime()</code> usage in JavaScript tests:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Fast-forward to 1st day to decrease price
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">increaseTime</span>(<span style="color:#a6e22e">helpers</span>.<span style="color:#a6e22e">byDays</span>(<span style="color:#ae81ff">1</span>));
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">increaseTime</span>(<span style="color:#a6e22e">helpers</span>.<span style="color:#a6e22e">byDays</span>(<span style="color:#ae81ff">1</span>));
 
 <span style="color:#75715e">// Place 1st bid
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">assertAcceptedBid</span>(<span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">bids</span>.<span style="color:#a6e22e">second</span>);
-<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">assertReceivedWei</span>(<span style="color:#a6e22e">received</span>.<span style="color:#a6e22e">after2</span>);
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">assertAcceptedBid</span>(<span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">bids</span>.<span style="color:#a6e22e">second</span>);
+<span style="color:#66d9ef">await</span> <span style="color:#a6e22e">assertReceivedWei</span>(<span style="color:#a6e22e">received</span>.<span style="color:#a6e22e">after2</span>);
 
 <span style="color:#75715e">// Place 2nd bid
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">assertAcceptedBid</span>(<span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">bids</span>.<span style="color:#a6e22e">third</span>);
-<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">assertReceivedWei</span>(<span style="color:#a6e22e">received</span>.<span style="color:#a6e22e">after3</span>);
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">assertAcceptedBid</span>(<span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">bids</span>.<span style="color:#a6e22e">third</span>);
+<span style="color:#66d9ef">await</span> <span style="color:#a6e22e">assertReceivedWei</span>(<span style="color:#a6e22e">received</span>.<span style="color:#a6e22e">after3</span>);
 
 <span style="color:#75715e">// Fast-forward 7 days to claim tokens
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">increaseTime</span>(<span style="color:#a6e22e">helpers</span>.<span style="color:#a6e22e">byDays</span>(<span style="color:#ae81ff">8</span>));
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">increaseTime</span>(<span style="color:#a6e22e">helpers</span>.<span style="color:#a6e22e">byDays</span>(<span style="color:#ae81ff">8</span>));
 </code></pre></div><p><a href="https://github.com/duaraghav8/Ethlint">Ethlint</a> is an automated tool to check your code conformity with the official <a href="http://solidity.readthedocs.io/en/latest/style-guide.html">Solidity Style Guide</a>. It’s pretty configurable, so you can turn off debatable cosmetic rules like the two blank line gap between contract declaration and its first function.</p>
 <p><a href="https://github.com/sc-forks/solidity-coverage">solidity-coverage</a> measures which lines and branches of your code are covered by related unit tests, generating beautiful HTML reports using <a href="https://github.com/gotwarlost/istanbul">istanbul</a>.</p>
 <p>Finally, <a href="https://circleci.com">CircleCI</a> helped us to connect all of this tools and automatically run them one-by-one on every new feature branch and master branch updates, ensuring we don’t have any compilation errors, test failures, or obvious security flaws.</p>
@@ -284,6 +284,7 @@ Ability to accept Bitcoin-funded bids
 <li>Connecting BTC and ETH blockchains</li>
 <li>DApp development issues</li>
 </ul>
+<p>Originally published on <a href="https://medium.com/@shopevery/building-smart-contracts-for-a-dutch-auction-part-1-81dc5c770f1f">EVERY @ Medium</a></p>
 </div>
 
 <h2>Comments</h2>
@@ -311,7 +312,7 @@ Ability to accept Bitcoin-funded bids
 
   <footer>
   <div>
-    &copy; Pavel Kiselyov 2020
+    &copy; Pavel Kiselyov 2021
 
     
 
