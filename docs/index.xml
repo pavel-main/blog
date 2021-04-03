@@ -6,7 +6,16 @@
     <description>Recent content on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🥷 CryptoBoy your cryptography &amp; cryptocurrency Swiss Army Knife</title>
+      <link>https://pavel-main.github.io/blog/projects/02-cryptoboy/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/blog/projects/02-cryptoboy/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>BB-132: Pavel Kiselyov about ICO industry and Blockchain</title>
       <link>https://pavel-main.github.io/blog/posts/03-basic-block-radio/</link>

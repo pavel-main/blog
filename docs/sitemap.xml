@@ -3,23 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://pavel-main.github.io/blog/posts/03-basic-block-radio/</loc>
-    <lastmod>2020-07-22T00:00:00+00:00</lastmod>
+    <loc>https://pavel-main.github.io/blog/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pavel-main.github.io/blog/</loc>
+    <loc>https://pavel-main.github.io/blog/projects/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pavel-main.github.io/blog/projects/02-cryptoboy/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pavel-main.github.io/blog/posts/03-basic-block-radio/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://pavel-main.github.io/blog/posts/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://pavel-main.github.io/blog/projects/</loc>
-    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
