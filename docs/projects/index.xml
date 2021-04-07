@@ -9,19 +9,28 @@
     <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/blog/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🥷 CryptoBoy - your cryptography Swiss Army Knife</title>
-      <link>https://pavel-main.github.io/blog/projects/02-cryptoboy/</link>
+      <link>https://pavel-main.github.io/blog/projects/03-cryptoboy/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://pavel-main.github.io/blog/projects/02-cryptoboy/</guid>
+      <guid>https://pavel-main.github.io/blog/projects/03-cryptoboy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>🔌 Blockchain Exchange API client implementation in Scala</title>
-      <link>https://pavel-main.github.io/blog/projects/01-exchange4s/</link>
+      <link>https://pavel-main.github.io/blog/projects/02-exchange4s/</link>
       <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://pavel-main.github.io/blog/projects/01-exchange4s/</guid>
+      <guid>https://pavel-main.github.io/blog/projects/02-exchange4s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bitcore Wallet Service API client implementation in Go</title>
+      <link>https://pavel-main.github.io/blog/projects/01-bws-go/</link>
+      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/blog/projects/01-bws-go/</guid>
       <description></description>
     </item>
     
