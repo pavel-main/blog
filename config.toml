@@ -1,4 +1,4 @@
-baseURL = "https://pavel-main.github.io/blog/"
+baseURL = "https://pavel-main.github.io/"
 googleAnalytics = "UA-171038047-2"
 
 theme = "soho"
