@@ -9,7 +9,8 @@ Had a live talk with a couple of Russian streamers based in Japan (Tokyo & Okina
 {{< youtube 73QyigHW3kU >}}
 
 <!--more-->
-<br>
+&nbsp;
+
 List of topics:
 
 - Distributed ledger
