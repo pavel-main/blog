@@ -1,5 +1,5 @@
 ---
-title: "BB-132: Pavel Kiselyov about ICO industry and Blockchain"
+title: "BB-132: Pavel Kiselyov on ICO industry and Blockchain"
 date: 2020-07-22
 draft: false
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Self-Esteem Podcast #27: About crypto, blockchain, mining, exchanges & wallets"
+title: "Self-Esteem Podcast #27"
 date: 2021-05-06
 draft: false
 ---
@@ -7,6 +7,8 @@ draft: false
 Had a live talk with a couple of Russian streamers based in Japan (Tokyo & Okinawa) about crypto:
 
 {{< youtube 73QyigHW3kU >}}
+
+<!--more-->
 
 List of topics:
 
@@ -30,5 +32,3 @@ List of topics:
 - [TON project closure](https://telegra.ph/What-Was-TON-And-Why-It-Is-Over-05-12)
 - Crypto laws in Japan
 - [Nōryoku Shiken N2](https://en.wikipedia.org/wiki/Japanese-Language_Proficiency_Test)
-
-<!--more-->
