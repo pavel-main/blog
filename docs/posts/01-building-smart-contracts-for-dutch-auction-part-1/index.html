@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <base href="https://pavel-main.github.io/blog/">     
+  <base href="https://pavel-main.github.io/">     
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.80.0" />
@@ -49,7 +49,7 @@ Exponential price decay, starting from $19.99 down to $0.01 per token
 Ability to accept Bitcoin-funded bids
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://pavel-main.github.io/blog/posts/01-building-smart-contracts-for-dutch-auction-part-1/" />
+<meta property="og:url" content="https://pavel-main.github.io/posts/01-building-smart-contracts-for-dutch-auction-part-1/" />
 <meta property="article:published_time" content="2018-03-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-03-28T00:00:00+00:00" />
 
@@ -57,16 +57,16 @@ Ability to accept Bitcoin-funded bids
 
   <link type="text/css"
         rel="stylesheet"
-        href="/blog/css/print.css"
+        href="/css/print.css"
         media="print">
 
   <link type="text/css"
         rel="stylesheet"
-        href="/blog/css/poole.css">
+        href="/css/poole.css">
 
   <link type="text/css"
         rel="stylesheet"
-        href="/blog/css/hyde.css">
+        href="/css/hyde.css">
 
   
 <style type="text/css">
@@ -101,7 +101,7 @@ Ability to accept Bitcoin-funded bids
 
 
 
-  <link type="text/css" rel="stylesheet" href="/blog/css/blog.css">
+  <link type="text/css" rel="stylesheet" href="/css/blog.css">
 
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
@@ -113,9 +113,9 @@ Ability to accept Bitcoin-funded bids
 
   <link rel="apple-touch-icon-precomposed"
         sizes="160x160"
-        href="https://pavel-main.github.io/blog//apple-touch-icon.png">
+        href="https://pavel-main.github.io//apple-touch-icon.png">
 
-  <link rel="shortcut icon" href="https://pavel-main.github.io/blog//favicon.png">
+  <link rel="shortcut icon" href="https://pavel-main.github.io//favicon.png">
 
   
   </head>
@@ -126,8 +126,8 @@ Ability to accept Bitcoin-funded bids
       
         
         <div class="author-image">
-          <a href="https://pavel-main.github.io/blog/">
-            <img src="/blog/profile-pic.jpg" class="img-circle img-headshot center" alt="Profile Picture">
+          <a href="https://pavel-main.github.io/">
+            <img src="/profile-pic.jpg" class="img-circle img-headshot center" alt="Profile Picture">
           </a>
         </div>
         
@@ -141,12 +141,12 @@ Ability to accept Bitcoin-funded bids
     <nav>
       <ul class="sidebar-nav">
         <li>
-          <a href="https://pavel-main.github.io/blog/">Home</a>
+          <a href="https://pavel-main.github.io/">Home</a>
         </li>
         <li>
-          <a href="/blog/posts/">Posts</a>
+          <a href="/posts/">Posts</a>
         </li><li>
-          <a href="/blog/projects/">Projects</a>
+          <a href="/projects/">Projects</a>
         </li><li>
           <a href="https://pavel.engineering">Résumé</a>
         </li>
@@ -233,7 +233,7 @@ Ability to accept Bitcoin-funded bids
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>In Solidity, all of the logging is achieved through the concept of <a href="https://solidity.readthedocs.io/en/v0.4.21/contracts.html#events">Events</a>. Whenever you’re having a failure in tests, Truffle console shows exact events that were emitted during test transactions, helping you to figure out which parts of the code weren’t reached:</p>
-<img src="https://pavel-main.github.io/blog/solidity-tests.png" alt="Failed test report in Truffle console">
+<img src="https://pavel-main.github.io/solidity-tests.png" alt="Failed test report in Truffle console">
 <p>Since every operation in EVM has a <a href="https://docs.google.com/spreadsheets/d/1n6mRqkBz3iWcOlRem_mO09GtSKEKrAsfO7Frgx18pNU/edit#gid=0">non-zero gas price</a>, it’s inefficient to put event emitting wherever you want, like during classic programming (e.g. a webserver can have request logging with DEBUG severity). Take a pen and paper, sit back and think about the crucial parts of your contract — what exactly do you want to track and be sure of?</p>
 <p>For our case, the Dutch Auction, they’re split into three main categories:</p>
 <ul>
@@ -305,7 +305,7 @@ Ability to accept Bitcoin-funded bids
           integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
           crossorigin="anonymous"></script>
 
-  <script src="/blog/js/blog.js"></script>
+  <script src="/js/blog.js"></script>
 
   
 <script type="application/javascript">
