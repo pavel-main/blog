@@ -1,6 +1,5 @@
 baseURL = "https://pavel-main.github.io/blog/"
 googleAnalytics = "UA-171038047-2"
-disqusShortname = "https-pavel-main-github-io-blog"
 
 theme = "soho"
 title = "Pavel Kiselyov - Engineering Blog"
