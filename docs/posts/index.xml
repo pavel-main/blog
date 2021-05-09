@@ -6,7 +6,42 @@
     <description>Recent content in Posts on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self-Esteem Podcast #27: About crypto, blockchain, mining, exchanges &amp; wallets</title>
+      <link>https://pavel-main.github.io/blog/posts/04-sergey-kuvaev-podcast/</link>
+      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/blog/posts/04-sergey-kuvaev-podcast/</guid>
+      <description>&lt;p&gt;Had a live talk with a couple of Russian streamers based in Japan (Tokyo &amp;amp; Okinawa) about crypto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Distributed ledger&lt;/li&gt;
+&lt;li&gt;Public-key cryptography&lt;/li&gt;
+&lt;li&gt;Bitcoin supply cap&lt;/li&gt;
+&lt;li&gt;Proof-of-Work consensus&lt;/li&gt;
+&lt;li&gt;ICOs &amp;amp; Smart Contracts&lt;/li&gt;
+&lt;li&gt;DeFi: AMM &amp;amp; Yield Farming&lt;/li&gt;
+&lt;li&gt;NFTs&lt;/li&gt;
+&lt;li&gt;Mnemonic phrase &amp;amp; Security&lt;/li&gt;
+&lt;li&gt;Custodial vs non-custodial&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.lookintobitcoin.com/charts/stock-to-flow-model&#34;&gt;Stock-to-flow model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cyberpunk 2077 eurodollars&lt;/li&gt;
+&lt;li&gt;Proof-of-Storage &amp;amp; Chia&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Defi-Cartel/salmonella&#34;&gt;Salmonella Token&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shitcoinoffering.com/from-russia-with-love-mark-space-scam-hit-three-time-stanley-cup-winner-for-4-mills&#34;&gt;Mark Space Scam&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Decentralized Internet&lt;/li&gt;
+&lt;li&gt;Metadata surveillance&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Bitcoin fixes this&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://telegra.ph/What-Was-TON-And-Why-It-Is-Over-05-12&#34;&gt;TON project closure&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Crypto laws in Japan&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Japanese-Language_Proficiency_Test&#34;&gt;Nōryoku Shiken N2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/73QyigHW3kU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
+    </item>
+    
     <item>
       <title>BB-132: Pavel Kiselyov about ICO industry and Blockchain</title>
       <link>https://pavel-main.github.io/blog/posts/03-basic-block-radio/</link>
