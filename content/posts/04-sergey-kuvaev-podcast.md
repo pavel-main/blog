@@ -6,6 +6,10 @@ draft: false
 
 Had a live talk with a couple of Russian streamers based in Japan (Tokyo & Okinawa) about crypto:
 
+{{< youtube 73QyigHW3kU >}}
+
+List of topics:
+
 - Distributed ledger
 - Public-key cryptography
 - Bitcoin supply cap
@@ -26,7 +30,5 @@ Had a live talk with a couple of Russian streamers based in Japan (Tokyo & Okina
 - [TON project closure](https://telegra.ph/What-Was-TON-And-Why-It-Is-Over-05-12)
 - Crypto laws in Japan
 - [Nōryoku Shiken N2](https://en.wikipedia.org/wiki/Japanese-Language_Proficiency_Test)
-
-{{< youtube 73QyigHW3kU >}}
 
 <!--more-->
