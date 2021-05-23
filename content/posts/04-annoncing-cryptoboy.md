@@ -1,5 +1,5 @@
 ---
-title: "CryptoBoy - cryptography & cryptocurrency Swiss Army Knife"
+title: "CryptoBoy - your crypto Swiss Army Knife"
 date: 2021-04-04
 draft: false
 tags: 
