@@ -24,14 +24,14 @@ customJs = ["js/blog.js"]
 
   ## Set as many as you want.
   [[params.socialIcons]]
-  icon = "fa-linkedin"
-  title = "Linkedin"
-  url = "https://www.linkedin.com/in/pavel-main"
-
-  [[params.socialIcons]]
   icon = "fa-github"
   title = "GitHub"
   url = "https://github.com/pavel-main"
+
+  [[params.socialIcons]]
+  icon = "fa-linkedin"
+  title = "Linkedin"
+  url = "https://www.linkedin.com/in/pavel-main"
 
 [menu]
 
