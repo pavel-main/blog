@@ -148,4 +148,4 @@ So far we’ve defined some foundational terminology together, in next parts we 
 - Connecting BTC and ETH blockchains
 - DApp development issues
 
-Originally published on [EVERY @ Medium](https://medium.com/@shopevery/building-smart-contracts-for-a-dutch-auction-part-1-81dc5c770f1f)
+*Originally published on [EVERY @ Medium](https://medium.com/@shopevery/building-smart-contracts-for-a-dutch-auction-part-1-81dc5c770f1f)*

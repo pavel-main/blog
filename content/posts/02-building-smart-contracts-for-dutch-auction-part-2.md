@@ -123,4 +123,4 @@ deployer.deploy(
 
 So far, we’ve learned the core concepts of a Dutch Auction and its representation in the Solidity language. In the next part, we will deal with the exponential price decay, Bitcoin-funded bids, and DApp development problems.
 
-Originally published on [EVERY @ Medium](https://medium.com/@shopevery/building-smart-contracts-for-a-dutch-auction-part-2-69554d20f91c)
+*Originally published on [EVERY @ Medium](https://medium.com/@shopevery/building-smart-contracts-for-a-dutch-auction-part-2-69554d20f91c)*
