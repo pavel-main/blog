@@ -2,9 +2,7 @@
 title: "Building Smart Contracts for Dutch Auction (Part 2)"
 date: 2018-04-16
 draft: false
-tags: 
-    - english
-    - guides
+flag: 🇬🇧
 ---
 
 In the previous article, we've figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.

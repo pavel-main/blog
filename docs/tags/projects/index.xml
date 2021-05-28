@@ -6,18 +6,16 @@
     <description>Recent content in projects on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CryptoBoy - cryptography &amp; cryptocurrency Swiss Army Knife</title>
-      <link>https://pavel-main.github.io/posts/04-annoncing-cryptoboy/</link>
-      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <title>Self-Esteem Podcast #27</title>
+      <link>https://pavel-main.github.io/posts/06-arty-a7-fpga-mini-project/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://pavel-main.github.io/posts/04-annoncing-cryptoboy/</guid>
-      <description>&lt;h3 id=&#34;расскажите-о-себе-и-сути-проекта&#34;&gt;Расскажите о себе и сути проекта?&lt;/h3&gt;
-&lt;p&gt;Привет!&lt;/p&gt;
-&lt;p&gt;Уже несколько лет занимаюсь прикладной криптографией в блокчейн-проектах. Приходится возиться с различными алгоритмами шифрования, хэширования, консенсуса, парсить разные форматы, кодировки, протоколы итп.&lt;/p&gt;
-&lt;p&gt;Думаю все это в той или иной степени касается почти каждого современного разработчика, однако в криптовалютах все выглядит гораздо более гиперболизированным из-за перенасыщения технологий.&lt;/p&gt;
-&lt;p&gt;В 2021 только-только начинают запускаться новые протоколы, выжившие со времен ICO-хайпа (например Bitcoin Taproot, Polkadot, Ethereum 2.0, Mina etc.), усиливая и без того чрезмерный бардак.&lt;/p&gt;</description>
+      <guid>https://pavel-main.github.io/posts/06-arty-a7-fpga-mini-project/</guid>
+      <description>tba:
+pic.twitter.com/ObaZfkVgXx
+&amp;mdash; CryptoBoy (@CryptoBoy2283) May 28, 2021  </description>
     </item>
     
   </channel>
