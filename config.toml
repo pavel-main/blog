@@ -12,7 +12,7 @@ enableEmoji = true
 
 [params]
 author = "Pavel Kiselyov"
-profilePicture = "avatar.jpg"
+profilePicture = "profile_pic_border.png"
 copyright = "Pavel Kiselyov"
 
 ## Set custom theme color.
