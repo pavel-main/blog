@@ -26,12 +26,12 @@ customJs = ["js/blog.js"]
   [[params.socialIcons]]
   icon = "fa-github"
   title = "GitHub"
-  url = "https://github.com/pavel-main"
+  url = "https://github.com/pavel-bc"
 
   [[params.socialIcons]]
   icon = "fa-github"
   title = "GitHub"
-  url = "https://github.com/pavel-bc"  
+  url = "https://github.com/pavel-main"
 
   [[params.socialIcons]]
   icon = "fa-linkedin"
