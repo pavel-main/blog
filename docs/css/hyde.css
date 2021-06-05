@@ -150,6 +150,7 @@ footer {
 }
 
 .img-headshot {
+  border: 2px solid #FFF;
   height: 180px;
   width: 180px;
 }
