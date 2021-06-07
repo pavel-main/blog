@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://pavel-main.github.io/tags/crypto/</loc>
+    <lastmod>2021-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pavel-main.github.io/</loc>
+    <lastmod>2021-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pavel-main.github.io/tags/podcasts/</loc>
     <lastmod>2021-05-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -18,7 +28,22 @@
   </url>
   
   <url>
+    <loc>https://pavel-main.github.io/tags/</loc>
+    <lastmod>2021-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pavel-main.github.io/posts/04-annoncing-cryptoboy/</loc>
+    <lastmod>2021-04-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pavel-main.github.io/tags/mobile/</loc>
+    <lastmod>2021-04-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pavel-main.github.io/tags/swift/</loc>
     <lastmod>2021-04-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,6 +68,11 @@
   </url>
   
   <url>
+    <loc>https://pavel-main.github.io/tags/fpga/</loc>
+    <lastmod>2020-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pavel-main.github.io/projects/02-exchange4s/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url>
@@ -58,6 +88,16 @@
   </url>
   
   <url>
+    <loc>https://pavel-main.github.io/tags/ethereum/</loc>
+    <lastmod>2018-04-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pavel-main.github.io/tags/solidity/</loc>
+    <lastmod>2018-04-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pavel-main.github.io/posts/01-building-smart-contracts-for-dutch-auction-part-1/</loc>
     <lastmod>2018-03-28T00:00:00+00:00</lastmod>
   </url>
@@ -68,10 +108,6 @@
   
   <url>
     <loc>https://pavel-main.github.io/series/</loc>
-  </url>
-  
-  <url>
-    <loc>https://pavel-main.github.io/tags/</loc>
   </url>
   
 </urlset>

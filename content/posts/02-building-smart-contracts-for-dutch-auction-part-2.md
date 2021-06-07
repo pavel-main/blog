@@ -2,6 +2,10 @@
 title: "Building Smart Contracts for Dutch Auction (Part 2)"
 date: 2018-04-16
 draft: false
+tags:
+  - crypto
+  - ethereum
+  - solidity
 flag: 🇬🇧
 ---
 

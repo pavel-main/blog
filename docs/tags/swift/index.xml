@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swift on Pavel Kiselyov - Engineering Blog</title>
+    <link>https://pavel-main.github.io/tags/swift/</link>
+    <description>Recent content in swift on Pavel Kiselyov - Engineering Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CryptoBoy - Swiss Army Knife for crypto engineers</title>
+      <link>https://pavel-main.github.io/posts/04-annoncing-cryptoboy/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/posts/04-annoncing-cryptoboy/</guid>
+      <description>&lt;h3 id=&#34;расскажите-о-себе-и-сути-проекта&#34;&gt;Расскажите о себе и сути проекта?&lt;/h3&gt;
+&lt;p&gt;Привет!&lt;/p&gt;
+&lt;p&gt;Уже несколько лет занимаюсь прикладной криптографией в блокчейн-проектах. Приходится возиться с различными алгоритмами шифрования, хэширования, консенсуса, парсить разные форматы, кодировки, протоколы итп.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

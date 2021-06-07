@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ethereum on Pavel Kiselyov - Engineering Blog</title>
+    <link>https://pavel-main.github.io/tags/ethereum/</link>
+    <description>Recent content in ethereum on Pavel Kiselyov - Engineering Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/ethereum/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Smart Contracts for Dutch Auction (Part 2)</title>
+      <link>https://pavel-main.github.io/posts/02-building-smart-contracts-for-dutch-auction-part-2/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/posts/02-building-smart-contracts-for-dutch-auction-part-2/</guid>
+      <description>&lt;p&gt;In the previous article, we&amp;rsquo;ve figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.&lt;/p&gt;
+&lt;p&gt;Now it’s time to write an actual Dutch Auction in Solidity!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Building Smart Contracts for Dutch Auction (Part 1)</title>
+      <link>https://pavel-main.github.io/posts/01-building-smart-contracts-for-dutch-auction-part-1/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/posts/01-building-smart-contracts-for-dutch-auction-part-1/</guid>
+      <description>&lt;p&gt;In this series, we’ll talk about common challenges we encountered during the development of smart contracts for a non-standard token sale.&lt;/p&gt;
+&lt;p&gt;Initial requirements for EVERY Token Sale:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dutch auction with duration of 30 days&lt;/li&gt;
+&lt;li&gt;Exponential price decay, starting from $19.99 down to $0.01 per token&lt;/li&gt;
+&lt;li&gt;Ability to accept Bitcoin-funded bids&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

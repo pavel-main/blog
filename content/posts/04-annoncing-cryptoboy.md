@@ -2,6 +2,10 @@
 title: "CryptoBoy - Swiss Army Knife for crypto engineers"
 date: 2021-04-04
 draft: false
+tags:
+  - mobile
+  - crypto
+  - swift
 flag: 🇷🇺
 ---
 
