@@ -38,6 +38,11 @@ customJs = ["js/blog.js"]
   title = "Linkedin"
   url = "https://www.linkedin.com/in/pavel-main"
 
+  [[params.socialIcons]]
+  icon = "fa fa-map-marked-alt"
+  title = "Nomad List"
+  url = "https://nomadlist.com/@pavel"
+
 [menu]
 
   [[menu.main]]
