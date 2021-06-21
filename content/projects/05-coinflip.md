@@ -1,5 +1,5 @@
 ---
-title: "Coinflip - ERC-20 token sale smart contract interaction"
+title: "Coinflip - token sale smart contract management server"
 date: "2018-02-01"
 link: "https://github.com/pavel-main/coinflip"
 ---
